@@ -1,0 +1,150 @@
+﻿c hdn_extended generated from template at 2023-06-15 11:11:07
+c Hands Down Extended with keymappings for universal cross-language symbol layer.
+store(&VERSION) '10.0'
+store(&NAME) 'Hands Down Neu Extended'
+store(&COPYRIGHT) '© DeadlySquad13'
+store(&KEYBOARDVERSION) '1.0'
+store(&TARGETS) 'windows macosx linux'
+store(&BITMAP) 'hdn_extended.ico'
+store(&VISUALKEYBOARD) 'hdn_extended.kvks'
+
+begin Unicode > use(main)
+
+group(main) using keys
++ [SHIFT K_BKQUOTE] > '~'
++ [K_BKQUOTE] > '`'
++ [K_0] > '0'
++ [K_9] > '9'
++ [K_8] > '8'
++ [K_7] > '7'
++ [K_6] > '6'
++ [K_5] > '5'
++ [K_4] > '4'
++ [K_3] > '3'
++ [K_2] > '2'
++ [K_1] > '1'
++ [SHIFT K_9] > '<'
++ [K_EQUAL] > '\'
++ [K_HYPHEN] > '='
++ [SHIFT K_EQUAL] > '|'
++ [SHIFT K_HYPHEN] > '_'
++ [SHIFT K_0] > '>'
++ [SHIFT K_7] > '&'
++ [SHIFT K_6] > '^'
++ [SHIFT K_5] > '%'
++ [SHIFT K_4] > '$'
++ [SHIFT K_3] > '#'
++ [SHIFT K_2] > '@'
++ [SHIFT K_1] > '!'
++ [SHIFT K_BKSLASH] > '}'
++ [SHIFT K_RBRKT] > '{'
++ [SHIFT K_SPACE] > ' '
++ [SHIFT K_SLASH] > 'K'
++ [SHIFT K_PERIOD] > 'Y'
++ [SHIFT K_COMMA] > 'O'
++ [SHIFT K_M] > 'U'
++ [SHIFT K_N] > '+'
++ [SHIFT K_QUOTE] > 'J'
++ [SHIFT K_COLON] > 'H'
++ [SHIFT K_L] > 'I'
++ [SHIFT K_K] > 'E'
++ [SHIFT K_J] > 'A'
++ [SHIFT K_H] > ';'
++ [SHIFT K_LBRKT] > 'Z'
++ [SHIFT K_P] > ']'
++ [SHIFT K_O] > '['
++ [SHIFT K_I] > 'Q'
++ [SHIFT K_U] > ':'
++ [SHIFT K_Y] > '*'
++ [SHIFT K_B] > 'B'
++ [SHIFT K_V] > 'D'
++ [SHIFT K_C] > 'L'
++ [SHIFT K_X] > 'C'
++ [SHIFT K_Z] > 'X'
++ [SHIFT K_G] > 'G'
++ [SHIFT K_F] > 'T'
++ [SHIFT K_D] > 'N'
++ [SHIFT K_S] > 'S'
++ [SHIFT K_A] > 'R'
++ [SHIFT K_T] > 'V'
++ [SHIFT K_R] > 'P'
++ [SHIFT K_E] > 'M'
++ [SHIFT K_W] > 'F'
++ [SHIFT K_Q] > 'W'
++ [K_BKSLASH] > ')'
++ [K_RBRKT] > '('
++ [K_SLASH] > 'k'
++ [K_PERIOD] > 'y'
++ [K_COMMA] > 'o'
++ [K_M] > 'u'
++ [K_N] > '-'
++ [K_QUOTE] > 'j'
++ [K_COLON] > 'h'
++ [K_L] > 'i'
++ [K_K] > 'e'
++ [K_J] > 'a'
++ [K_H] > ','
++ [K_LBRKT] > 'z'
++ [K_P] > U+0027
++ [K_O] > '"'
++ [K_I] > 'q'
++ [K_U] > '.'
++ [K_Y] > '/'
++ [K_SPACE] > ' '
++ [K_B] > 'b'
++ [K_V] > 'd'
++ [K_C] > 'l'
++ [K_X] > 'c'
++ [K_Z] > 'x'
++ [K_G] > 'g'
++ [K_F] > 't'
++ [K_D] > 'n'
++ [K_S] > 's'
++ [K_A] > 'r'
++ [K_T] > 'v'
++ [K_R] > 'p'
++ [K_E] > 'm'
++ [K_W] > 'f'
++ [K_Q] > 'w'
+
+c Universal Layout Mappings.
++ [RCTRL RALT K_F1] > U+0021
+
++ [RCTRL RALT K_F2] > U+0027
++ [RCTRL RALT SHIFT K_F2] > U+0022
+
++ [RCTRL RALT K_F4] > U+003B
+
++ [RCTRL RALT K_F6] > U+003A
++ [RCTRL RALT SHIFT K_F6] > U+005E
+
++ [RCTRL RALT K_F7] > U+003F
++ [RCTRL RALT SHIFT K_F7] > U+0026
+
++ [RCTRL RALT K_F8] > U+002A
+
++ [RCTRL RALT K_F9] > U+0028
+
++ [RCTRL RALT K_F10] > U+0029
+
++ [RCTRL RALT K_F13] > U+002D
+
++ [RCTRL RALT K_F14] > U+003D
++ [RCTRL RALT SHIFT K_F14] > U+002B
+
++ [RCTRL RALT K_F15] > U+005B
++ [RCTRL RALT SHIFT K_F15] > U+007B
+
++ [RCTRL RALT K_F16] > U+005D
++ [RCTRL RALT SHIFT K_F16] > U+007D
+
++ [RCTRL RALT K_F17] > U+003C
+
++ [RCTRL RALT K_F18] > U+003E
+
++ [RCTRL RALT K_F19] > U+005C
++ [RCTRL RALT SHIFT K_F19] > U+007C
+
++ [RCTRL RALT K_F20] > U+002F
+
++ [RCTRL RALT K_F21] > U+002E

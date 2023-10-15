@@ -1,0 +1,7 @@
+link strings
+
+procedure main(args)
+  local s
+  s := "link strings\n\nprocesure main(args)\n  local s\n  s := $\n  write(replace(s,char(36),image(s)))\nend"
+  write(replace(s,char(36),image(s)))
+end

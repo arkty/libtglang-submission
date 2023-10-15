@@ -1,0 +1,24 @@
+# Animated square in LOGO programming language, the KTurtle dialect
+# Copy / paste the content of this file in KTurtle and run it to see what it does
+# KTurtle is available here: https://apps.kde.org/kturtle/
+
+# Draws a square with the provided width
+learn square $width{
+	repeat 4{
+		forward $width
+		turnleft 90
+	}
+}
+
+# Draws the square at a specific point on the screen
+learn move $x, $y{
+		go $x, $y
+		square 100
+}
+
+# Animates the square on a diagonal
+for $y = 300 to 200 step -10{
+		reset
+		move 500-$y, $y		
+	}
+}

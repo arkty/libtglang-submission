@@ -1,0 +1,190 @@
+VERSION 5.0 C  This keyboard will work with Keyman 5.0
+NAME "WinsTelU 1.001"
+BITMAP "telu.bmp"
+HOTKEY "^+T" c Ctrl + Shift + T to activate the Telugu Unicode Keyboard
+message "Telugu Phonetic Keyboard"
+
+CAPS ALWAYS OFF
+
+begin UNICODE > use(main)
+group (main) using keys
+
++ '=' > deadkey(1)
++ 'x' > deadkey(2)
++ 'X' > deadkey(3)
++ '`' > deadkey(4)
+
+store (vowel)  'a' 'i' 'u' 'R' '|'     'E'     'O'\
+               'A' 'I' 'U' '^' '_' 'e' 'Y' 'o' 'V'
+store (vowelU) U+0C05 U+0C07 U+0C09 U+0C0B U+0C0C        U+0C0F        U+0C13 \
+               U+0C06 U+0C08 U+0C0A U+0C60 U+0C61 U+0C0E U+0C10 U+0C12 U+0C14
+
+store (consonant) 'k' 'g' 'W' 'c' 'j' 'w' 't' 'd' 'N' 'q' '[' 'n' 'p' 'b' 'm' 'y' 'l' 'v' 'z' 's' \
+                  'K' 'G'     'C' 'J'     'T' 'D'     'Q' '{'     'P' 'B'         'L'     'Z' 'h'
+store (consonantU) U+0C15 U+0C17 U+0C19 U+0C1A  U+0C1C U+0C1E U+0C1F U+0C21 U+0C23 U+0C24 U+0C26 U+0C28 U+0C2A U+0C2C U+0C2E U+0C2F U+0C32 U+0C35 U+0C36 U+0C38 \
+                   U+0C16 U+0C18        U+0C1B  U+0C1D        U+0C20 U+0C22        U+0C25 U+0C27        U+0C2B U+0C2D               U+0C33        U+0C37 U+0C39
+
+store (specialcons)  'r'
+
+store (specialconsU) U+0C31
+
+store (specialcase2) 'r'
+store (specialcase2U) U+0C30
+
+store (diacriticalmod)  'M' 'H' 'S'
+store (diacriticalmodU) U+0C02 U+0C03 U+0C01
+
+store (number)  '0' '1' '2' '3' '4' '5' '6' '7' '8' '9'
+store (Telugu) U+0C66 U+0C67 U+0C68 U+0C69 U+0C6A U+0C6B U+0C6C U+0C6D U+0C6E U+0C6F
+
+store (different) 'F' 'f'
+
++ any(vowel) > index(vowelU,1)
++ any(consonant) > index(consonantU,1)
+dk(1) + any(specialcons) > index(specialconsU,2)
++ any(diacriticalmod) > index(diacriticalmodU,1)
++ any(different) > beep
++ any(specialcase2) >  index(specialcase2U,1)
+dk(4) + any(number) > index(Telugu,2)
+
+any (consonantU) + 'a' > context U+200D
+any (consonantU) + 'A' > context U+0C3E
+any (consonantU) + 'i' > context U+0C3F
+any (consonantU) + 'I' > context U+0C40
+any (consonantU) + 'u' > context U+0C41
+any (consonantU) + 'U' > context U+0C42
+any (consonantU) + 'R' > context U+0C43
+any (consonantU) + '^' > context U+0C44
+any (consonantU) + 'e' > context U+0C46
+any (consonantU) + 'E' > context U+0C47
+any (consonantU) + 'Y' > context U+0C48
+any (consonantU) + 'o' > context U+0C4A
+any (consonantU) + 'O' > context U+0C4B
+any (consonantU) + 'V' > context U+0C4C
+
+any (consonantU) + any(diacriticalmod) > context index(diacriticalmodU,2)
+
+any (consonantU) + 'x'  > context U+0C4D
+any (consonantU) U+0C4D + 'x' > context U+200C
+
+any (consonantU) 'A' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'i' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'I' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'u' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'U' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'R' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) '^' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'e' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'E' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'Y' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'o' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'O' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (consonantU) 'V' + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+any (specialconsU) + 'x' > context U+0C4D
+any (specialconsU) U+0C4D + 'x' > index( specialconsU,1 ) U+0C4D U+200C
+
+any (specialconsU) + 'a' > context U+200D
+any (specialconsU) + 'A' > context U+0C3E
+any (specialconsU) + 'i' > context U+0C3F
+any (specialconsU) + 'I' > context U+0C40
+any (specialconsU) + 'u' > context U+0C41
+any (specialconsU) + 'U' > context U+0C42
+any (specialconsU) + 'R' > context U+0C43
+any (specialconsU) + '^' > context U+0C44
+any (specialconsU) + 'e' > context U+0C46
+any (specialconsU) + 'E' > context U+0C47
+any (specialconsU) + 'Y' > context U+0C48
+any (specialconsU) + 'o' > context U+0C4A
+any (specialconsU) + 'O' > context U+0C4B
+any (specialconsU) + 'V' > context U+0C4C
+
+any (specialconsU) + any(diacriticalmod) > context index(diacriticalmodU,2)
+
+any (specialcase2U) + 'a' > context U+200D
+any (specialcase2U) + 'A' > context U+0C3E
+any (specialcase2U) + 'i' > context U+0C3F
+any (specialcase2U) + 'I' > context U+0C40
+any (specialcase2U) + 'u' > context U+0C41
+any (specialcase2U) + 'U' > context U+0C42
+any (specialcase2U) + 'R' > context U+0C43
+any (specialcase2U) + '^' > context U+0C44
+any (specialcase2U) + 'e' > context U+0C46
+any (specialcase2U) + 'E' > context U+0C47
+any (specialcase2U) + 'Y' > context U+0C48
+any (specialcase2U) + 'o' > context U+0C4A
+any (specialcase2U) + 'O' > context U+0C4B
+any (specialcase2U) + 'V' > context U+0C4C
+
+any (specialcase2U) + any(diacriticalmod) > context index(diacriticalmodU,2)
+
+any (specialcase2U) + 'x'  > context U+0C4D
+any (specialcase2U) U+0C4D  + 'x' > context U+200C
+
+any (specialcase2U) 'A' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'i' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'I' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'u' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'U' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'R' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) '^' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'e' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'E' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'Y' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'o' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'O' + any(diacriticalmod) > context index(diacriticalmodU,3)
+any (specialcase2U) 'V' + any(diacriticalmod) > context index(diacriticalmodU,3)
+
++ [shift K_5] > U+0C1C U+0C4D U+0C1E
++ [shift K_7] > U+0C15 U+0C4D U+0C37
++ [shift K_8] > U+0C36 U+0C4D U+0C30
++ [shift K_4] > U+0C30 U+0C4D
++ [shift K_3] > U+0C4D U+0C30
+
+c Indic Diacritical Marks
+
+dk(1) + [K_SPACE] > dk(1)" "
+
+dk(1)" " + [SHIFT K_a] > U+0C3E
+dk(1)" " + [K_i] > U+0C3F
+dk(1)" " + [SHIFT K_i] > U+0C40
+dk(1)" " + [K_u] > U+0C41
+dk(1)" " + [SHIFT K_u] > U+0C42
+dk(1)" " + [SHIFT K_r] > U+0C43
+dk(1)" " + [SHIFT K_6] > U+0C44
+dk(1)" " + [SHIFT K_e] > U+0C46
+dk(1)" " + [K_e] > U+0C47
+dk(1)" " + [SHIFT K_y] > U+0C48
+dk(1)" " + [SHIFT K_o] > U+0C4A
+dk(1)" " + [K_o] > U+0C4B
+dk(1)" " + [SHIFT K_v] > U+0C4C
+dk(1)" " + [SHIFT K_m] > U+0C02
+dk(1)" " + [SHIFT K_h] > U+0C03
+dk(1)" " + [SHIFT K_s] > U+0C01
+dk(1)" " + [K_x] > dk(1)"  "
+dk(1)"  " + [K_x] > U+0C4D
+
+c Punctuation marks
+"'" + "'" > U+201D    c Closing double quotes
+'"' + '"' > U+201C    c Opening double quotes
+"-" + "-" > U+005F U+005F               c Drawing line
+U+005F U+005F + '-' > context U+005F    c Drawing line
+
+c Extended Fonts
+any ( consonantU ) + 'X'  > context U+0C4D U+200D
+any ( specialconsU ) + 'X'  > context U+0C4D U+200D
+any ( specialcase2U )  + 'X'  > context U+0C4D U+200D
+
+any ( consonantU ) U+0C4D U+200C + 'X' > index(consonantU,1) U+0C4D U+200D
+any ( specialconsU ) U+0C4D U+200C + 'X' > index(specialconsU,1) U+0C4D U+200D
+any ( specialcase2U ) U+0C4D U+200C + 'X' > index(specialcase2U,1) U+0C4D U+200D
+
+any ( consonantU ) U+0C4D U+200C + 'x' > index(consonantU,1) U+0C4D U+200D
+any ( specialconsU ) U+0C4D U+200C + 'x' > index(specialconsU,1) U+0C4D U+200D
+any ( specialcase2U ) U+0C4D U+200C + 'x' > index(specialcase2U,1) U+0C4D U+200D
+
+any (consonantU) U+0C4D U+0C30 + 'X' > index(consonantU,1) U+0C4D U+0C30 U+0C4D
+any (specialcase2U) U+0C4D U+0C30  + 'X' > index(specialcase2U,1) U+0C4D U+0C30 U+0C4D
+
+any (consonantU) U+0C4D U+0C30 U+0C4D U+200C + 'x' > index(consonantU,1) U+0C4D U+0C30 U+0C4D
+any (specialcase2U) U+0C4D U+0C30 U+0C4D U+200C + 'x' > index(specialcase2U,1) U+0C4D U+0C30 U+0C4D

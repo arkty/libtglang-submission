@@ -1,0 +1,13 @@
+to sawtooth
+  right   45
+  forward 56.56 ; this is an comment at the end of a line
+  left    135
+  forward 40
+  right   90
+end
+
+to sawblade
+  repeat 12 [ sawtooth right 30 ]
+end
+
+sawblade

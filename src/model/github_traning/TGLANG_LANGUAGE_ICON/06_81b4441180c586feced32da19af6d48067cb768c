@@ -1,0 +1,31 @@
+#
+# udb.icn- main udb Console Session, 
+# latter will handle both Console and GUI Interface through 
+# a command line options
+# Author  : Ziad Al-Sharif
+# e-mail  : zsharif@gmail.com
+#
+
+$include "defaults.icn"
+
+procedure main(argv)
+   local udb
+
+   if not (&features == "multiple programs") then
+      stop("udb requires multiple programs feature to be enabled.")
+
+   udb := Console()
+   trap("SIGINT",  sig_ignore)
+   trap("SIGPIPE", sig_ignore)
+
+   udb.startConsole(argv)
+
+   write("\n   Thank you for using UDB.\n   Goodbye !!!")
+end
+
+procedure sig_ignore(non)
+  writes("\r")
+  write(PROMPT || "Quit")
+  writes(PROMPT)
+end
+

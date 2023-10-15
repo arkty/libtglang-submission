@@ -1,0 +1,13 @@
+﻿c external_experiment_3 generated from template at 2021-12-11 09:29:10
+c with name "external_experiment_3"
+store(&NAME) 'external_experiment_3'
+store(&COPYRIGHT) '© Marc Durdin'
+store(&VERSION) '10.0'
+store(&KEYBOARDVERSION) '1.0'
+store(&TARGETS) 'any'
+store(&VISUALKEYBOARD) 'external_experiment_3.kvks'
+store(&LAYOUTFILE) 'external_experiment_3.keyman-touch-layout'
+
+begin Unicode > use(main)
+
+group(main) using keys

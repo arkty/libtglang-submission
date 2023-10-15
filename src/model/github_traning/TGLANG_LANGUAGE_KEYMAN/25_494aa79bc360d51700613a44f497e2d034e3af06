@@ -1,0 +1,187 @@
+VERSION 5.0
+NAME "WINSORIU 1.1"
+BITMAP "orya.bmp"
+HOTKEY   "^+O"
+message "Oriya Phonetic Keyboard"
+CAPS ALWAYS OFF
+begin UNICODE > use(main)
+group (main) using keys
++ 'x' > deadkey(1)
++ 'X' > deadkey(1)
+C VIRAMA DEADKEYS
+'x' + 'x' > deadkey(3)
++ 'X' > deadkey(6)
+C VARIOUS SIGNS KEADKEYS
++ 'F' > deadkey(4)
++ 'f' > deadkey(5)
++ 'S' > deadkey(2)
++ 'M' > deadkey(8)
++ 'H' > deadkey(8)
++ '=' > deadkey(7)  c additional consonants deadkeys   and also for English Number
+store(VOWELS)   'a' 'A' 'i' 'I' 'u' \
+                'U' 'R' '^' '|' '_' \
+                'e' 'E''Y' 'o' 'O' 'V'
+store(VOWELS_U) U+0B05 U+0B06 U+0B07 U+0B08 U+0B09 \
+                U+0B0A U+0B0B U+0B60 U+0B0C U+0B61 \
+                U+0B0F U+0B0F U+0B10 U+0B13 U+0B13 U+0B14
+store(CONS)    'k' 'K' 'g' 'G' 'W'     \
+                'c' 'C' 'j' 'J' 'w'     \
+                't' 'T' 'd' 'D' 'N'     \
+                'q' 'Q' '[' '{' 'n'     \
+                'p' 'P' 'b' 'B' 'm'   \
+                'y' 'r' 'l' 'L' 'z' 'Z' 's' 'h'
+store(CONS_U)   U+0B15 U+0B16 U+0B17 U+0B18 U+0B19 \
+                U+0B1A U+0B1B U+0B1C U+0B1D U+0B1E \
+                U+0B1F U+0B20 U+0B21 U+0B22 U+0B23 \
+                U+0B24 U+0B25 U+0B26 U+0B27 U+0B28 \
+                U+0B2A U+0B2B U+0B2C U+0B2D U+0B2E \
+                U+0B2F U+0B30 U+0B32 U+0B33 U+0B36 U+0B37 U+0B38 U+0B39
+store(VOWELS_MA)'A' 'i' 'I' 'u' \
+                'U' 'R'\
+                'e' 'E' 'Y' 'o' 'O' 'V'
+store(VOWELS_MA_U)  U+0B3E U+0B3F U+0B40 U+0B41 \
+                    U+0B42 U+0B43 \
+                    U+0B47 U+0B47 U+0B48 U+0B4B U+0B4B U+0B4C
+store(DIGITS) '0' '1' '2' '3' '4' '5' '6' '7' '8' '9'
+store(DIGITS_U) U+0b66 U+0b67 U+0b68 U+0b69 U+0b6a U+0b6b U+0b6c U+0b6d U+0b6e U+0B6f
+STORE(CONS_ADD) 'd''D''y'
+STORE(CONS_ADD_U) U+0B5C U+0B5D U+0B5F
+STORE(NUM) '0' '1' '2' '3' '4' '5' '6' '7' '8' '9'
+STORE(NUM_U) U+0B66 U+0B67 U+0B68 U+0B69 U+0B6A U+0B6B U+0B6C U+0B6D U+0B6E U+0B6F
+c changeing area
+
++ 'v' > U+0b13 U+0b4d U+0b35     c join letters for oriay va
++ D38 > U+0b15 u+0b4d U+0b37    c '&'
++ ANY (VOWELS) > INDEX(VOWELS_U,1)
++ ANY (CONS) > INDEX(CONS_U,1)
++ any(DIGITS) > index(DIGITS_U,1) c Oriay number
+dk(7) + any(DIGITS) > index(DIGITS,2) c English numbers press '=' then number
+DK(7) + ANY(CONS_ADD) > INDEX(CONS_ADD_U,2)
+ANY(CONS_U) + ANY(VOWELS_MA) > INDEX(CONS_U,1) INDEX(VOWELS_MA_U,2)
+U+0b5f + ANY(VOWELS_MA) > U+0b5f INDEX(VOWELS_MA_U,2)
+U+0b13 U+0b4d U+0b35 + ANY(VOWELS_MA) > U+0b13 U+0b4d U+0b35 INDEX(VOWELS_MA_U,4)
+c various signs for cons
+ANY(CONS_U) + 'S' > INDEX(CONS_U,1) U+0B01
+ANY(CONS_U) + 'M' > INDEX(CONS_U,1) U+0B02
+ANY(CONS_U) + 'H' > INDEX(CONS_U,1) U+0B03
+ANY(CONS_U) + 'f' > INDEX(CONS_U,1) U+0B3C
+c Cons + Vowel Mat + Sign
+ANY(CONS_U) any(VOWELS_MA_U) + 'S' > INDEX(CONS_U,1) INDEX(VOWELS_MA_U,2) U+0B01
+ANY(CONS_U) any(VOWELS_MA_U) + 'M' > INDEX(CONS_U,1)  INDEX(VOWELS_MA_U,2) U+0B02
+ANY(CONS_U) any(VOWELS_MA_U) + 'H' > INDEX(CONS_U,1) INDEX(VOWELS_MA_U,2) U+0B03
+ANY(CONS_U) any(VOWELS_MA_U) + 'f' > INDEX(CONS_U,1) INDEX(VOWELS_MA_U,2) U+0B3C
+c various signs for additional cons
+ANY(CONS_ADD_U) + 'S' > INDEX(CONS_ADD_U,1) U+0B01
+ANY(CONS_ADD_U) + 'M' > INDEX(CONS_ADD_U,1) U+0B02
+ANY(CONS_ADD_U) + 'H' > INDEX(CONS_ADD_U,1) U+0B03
+ANY(CONS_ADD_U) + 'f' > INDEX(CONS_ADD_U,1) U+0B3C
+c Cons VA
+U+0b13 U+0b4d U+0b35 + 'S' > context U+0B01
+U+0b13 U+0b4d U+0b35 + 'M' > context U+0B02
+U+0b13 U+0b4d U+0b35 + 'H' > context U+0B03
+U+0b13 U+0b4d U+0b35 + 'f' > context U+0B0c
+U+0b13 U+0b4d U+0b35 + 'x'> context u+0b4d
+
+U+0B30 dk(1) + any(cons) > u+0b30 U+0b4d index(CONS_U,3)
+c Modifiers
+ANY(CONS_U) dk(1) +'Y'  > INDEX(CONS_U,1) U+0B4D U+0b5f
+c  Consonants Virama Consonants  very very important when you want double cons use this line
+ ANY(CONS_U) dk(1) + ANY(CONS) > INDEX(CONS_U,1) U+0B4D U+200c INDEX(CONS_U,3)  use(arrange)
+ ANY(CONS_U) dk(1) + 'x' > INDEX(CONS_U,1) U+0B4D U+200c
+
+ c ++++++++ THis code we can use for double consonants ++++
+ C ++++++++Because Usp10.dll will render acdomatic if you give one 'x' it will render'   ++++
+ c ++++++++ double 'x' mean no render  but it will but Zero with non joiner +++++
+c ANY(CONS_U)  + 'x' >INDEX(CONS_U,1) U+0B4D
+c  ANY(CONS_U) dk(1) + 'x' >INDEX(CONS_U,1) U+0B4D U+200c
+c  U+0b13 U+0b4d U+0b35  + 'x' > context u+0b4d
+c r x cons
+  U+0b07 + 'S' > U+0b07 U+0B01
+  U+0B30 dk(1) + 'v' >   U+0B30 U+0b4d U+0b13 U+0b4d U+0b35
+c U+0B30 U+0b4d any(cons_U) u+0b4d + any(cons) > context index(CONS_U,5)
+c cons x r
+DK(7) + 'y' > U+0b5f
+group(Arrange)
+ANY(CONS_U) U+0B4D U+200c U+0B30 > INDEX(CONS_U,1)U+0B4D U+0B30
+ U+0b13 U+0b4d U+0b35 U+0B4D U+200c  U+0B30 >  U+0b13 U+0b4d U+0b35 U+0B4D U+0B30
+   U+0B1E U+0B4D U+200C  U+0B1C > U+0B1E U+0B4D U+0B1C  c ' w x j'
+ U+0B19 U+0B4D U+200C  U+0B1C > U+0B19 U+0B4D U+0B1C c ' W x j'
+ U+0B19 U+0B4D U+200C U+0B15 > U+0B19 U+0B4D U+0B15 c 'W x k '
+ U+0B19 U+0B4D U+200C U+0B16 > U+0B19 U+0B4D U+0B16 c 'W x K '
+  U+0B19 U+0B4D U+200C U+0B18 > U+0B19 U+0B4D U+0B18 c 'W x G '
+ U+0B19 U+0B4D U+200C U+0B17 > U+0B19 U+0B4D U+0B17 c 'W x g '
+ U+0B1e U+0B4D U+200C U+0B1b > U+0B1e U+0B4D U+0B1b c 'w x C '
+ U+0B1e U+0B4D U+200C U+0B1a > U+0B1e U+0B4D U+0B1a c 'w x c '
+
+U+0b1a U+0B4D U+200c U+0b1a > u+0b1a u+0b4d U+0b1a    C 'c x c'
+c  c  U+0b1a U+0B4D U+200C + 'c' > u+0b1a u+0b4d U+0b1a    C 'c x c'
+
+
+U+0b1a U+0B4D U+200C U+0b1a > u+0b1a u+0b4d U+0b1a    C 'c x c'
+U+0b1f U+0B4D U+200C U+0b1f >  U+0b1f U+0b4d U+0b1f   C 't x t'
+U+0b1e U+0B4D U+200C U+0b1a > U+0b1f u+0b4d U+0b1a        c 'w x c'
+u+0b24 U+0B4D U+200C u+0b24 > u+0b24 u+0b4d u+0b24  C 'q x q'
+u+0b1c U+0B4D U+200C u+0b1e >  u+0b1c u+0b4d u+0b1e       C ' j x w'
+u+0b1e U+0B4D U+200C u+0b1d >  u+0b1e u+0b4d u+0b1d       C ' w x j'
+U+0b28  U+0B4D U+200C u+0b26 > U+0b28 u+0b4d u+0b26     c ' n x ['
+U+0b28 U+0B4D U+200C u+0b27 > U+0b28 u+0b4d u+0b27  C ' n x {'
+U+0b2c U+0B4D U+200C u+0b26 > U+0b2c u+0b4d u+0b26    C ' b x ['
+U+0b26 U+0B4D U+200C u+0b27 > U+0b26 u+0b4d u+0b27      C ' [ x {'
+U+0b28 U+0B4D U+200C u+0b25 > U+0b28 u+0b4d u+0b25   C ' n x Q'
+U+0b38 U+0B4D U+200C u+0b25 > U+0b38 u+0b4d u+0b25      C ' s x Q'
+ U+0b2c U+0B4D U+200C u+0b2c > U+0b2c u+0b4d u+0b2c   C ' b x b'
+C 123
+C 124
+C 125
+U+0b26 U+0B4D U+200C U+0b26 > U+0b26 u+0b4d U+0b26         C ' [ x ['
+u+0b26 U+0B4D U+200C U+0b2d > U+0b26 u+0b4d U+0b2d       C ' [ x B'
+U+0b15 U+0B4D U+200C U+0b33 > U+0b15 u+0b4d U+0b33         C ' k x l'
+U+0b15 U+0B4D U+200C U+0b15 > U+0b15 u+0b4d U+0b15       C ' k x k'
+U+0b15 U+0B4D U+200C U+0b16 > U+0b15 u+0b4d U+0b16       C ' k x K'
+U+0b15 U+0B4D U+200C U+0b24 > U+0b15 u+0b4d U+0b24       C ' k x q'
+U+0b15 U+0B4D U+200C U+0b25 > U+0b15 u+0b4d U+0b25       C ' k x Q'
+U+0b28 U+0B4D U+200C U+0b28 > U+0b28 u+0b4d U+0b28        C ' n x n'
+U+0b23 U+0B4D U+200C U+0b21 > U+0b23 u+0b4d U+0b21         C ' N x d'
+U+0b2a U+0B4D U+200C U+0b24 > U+0b2a u+0b4d U+0b24           C ' p x q'
+U+0b38 U+0B4D U+200C U+0b24 > U+0b38 u+0b4d U+0b24            C ' s x q'
+U+0b28 U+0B4D U+200C U+0b24 > U+0b28 U+0b4d U+0b24   C ' n x t'
+U+0b23 U+0B4D U+200C U+0b22 > U+0b23 u+0b4d U+0b22       C ' N x D'
+U+0b2e U+0B4D U+200C U+0b2a > U+0b2e u+0b4d U+0b2a          C ' m x p'
+U+0b2e U+0B4D U+200C U+0b2b > U+0b2e u+0b4d U+0b2b          C ' m x p'
+U+0b2e U+0B4D U+200C U+0b2e > U+0b2e u+0b4d U+0b2e             C ' m x m'
+
+U+0b32 U+0B4D U+200C U+0b15 > U+0b32 u+0b4d U+0b15     C ' l x k'
+
+c c c 170 U+0B4D U+200C +'r' > D177
+U+0b38 U+0B4D U+200C U+0b15 > U+0b38 u+0b4d U+0b15            C ' s x k'
+C D179
+U+0b37 U+0B4D U+200C U+0b15 > U+0b37 u+0b4d U+0b15            C ' Z x k'
+U+0b15 U+0B4D U+200C U+0b38 > U+0b15 u+0b4d U+0b38             C ' k x s'
+U+0b23 U+0B4D U+200C U+0b20 > U+0b23 u+0b4d U+0b20            C ' N x T'
+U+0b38 U+0B4D U+200C U+0b16 > U+0b38 u+0b4d U+0b16           C ' s x K'
+U+0b38 U+0B4D U+200C U+0b2a > U+0b38 u+0b4d U+0b2a            C ' s x p'
+U+0b37 U+0B4D U+200C U+0b2a > U+0b37 u+0b4d U+0b2a            C ' Z x p'
+U+0b37 U+0B4D U+200C U+0b20 > U+0b37 u+0b4d U+0b20            C ' Z x T'
+U+0b37 U+0B4D U+200C U+0b23 > U+0b37 u+0b4d U+0b23            C ' Z x N'
+C D187
+C D188 IS SPACE
+U+0b37 U+0B4D U+200C U+0b1f > U+0b37 U+0b4d U+0b1f        C ' Z x t'
+U+0b36 U+0B4D U+200C U+0b1a > U+0b36 U+0b4d U+0b1a    C ' z x c'
+U+0b2a U+0B4D U+200C U+0b38 > U+0b2a u+0b4d U+0b38       C ' p x s'
+U+0b23 U+0B4D U+200C  U+0b23  > U+0b23 U+0B4D   U+0b23  c N x N
+
+C D192 c N x v
+U+0b1f U+0B4D U+200C U+0b2a > U+0b1f u+0b4d  U+0b2a     C ' t x P'
+U+0b24 U+0B4D U+200C U+0b1f > U+0b24 u+0b4d  U+0b1f  c q x t
+U+0b23 U+0B4D U+200C U+0b1f > U+0b23 u+0b4d U+0b1f         C ' N x t'
+C D196
+U+0b21 U+0B4D U+200C U+0b21 > U+0b21 u+0b4d U+0b21  C ' d x d'
+C D198 IS SPACE
+U+0b32 U+0B4D U+200C U+0b2a > U+0b32 u+0b4d  U+0b2a       C ' l x p'
+U+0b32 U+0B4D U+200C U+0b2B > U+0b32 u+0b4d  U+0b2B       C ' l x P'
+U+0b37 U+0B4D U+200C U+0b2b  > U+0b37 u+0b4d  U+0b2b      C ' Z x P'
+U+0b38 U+0B4D U+200C U+0b2b > U+0b38 u+0b4d  U+0b2b       C ' s x P'
+
+
+  U+0b2e u+0b4d  u+0b2c > U+0b2e u+0b4d  u+0b2c     C m x b
+  U+002e > u+0B64

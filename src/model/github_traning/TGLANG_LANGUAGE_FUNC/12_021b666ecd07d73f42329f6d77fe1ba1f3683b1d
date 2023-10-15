@@ -1,0 +1,219 @@
+# 20080118 PJ   0.1  jakobi@acm.org created
+# 20090729 PJ   0.2  uniqpath
+# copyright:  (c) 2009 jakobi@acm.org, GPL v3 or later
+# archive:    http://jakobi.github.com/script-archive-doc/
+
+# bash or ksh: common functions for shell startup: 00_lib.func
+# (for vars and logic, use 00_initialize.func/zz_finalize.func)
+
+
+
+# have a version of echo for bash that behaves ksh-style and 
+# honors --, but not overriding bash's broken echo. Note that on linux,
+# /bin/echo on linux might be bug compatible to the bash version,
+# and worse, print is taken by a generic mimecap using print command.
+
+function _echo {
+   typeset  nl='\n'
+   typeset fmt='%s'
+   typeset i
+   while [ "$#" -gt "0" ]; do 
+      case "$1" in
+         -n) shift;  nl=""   ;;
+         -E) shift; fmt='%s' ;;
+         -e) shift; fmt='%b' ;;
+         --) shift; break    ;;
+          -) shift; break    ;;
+          *)        break    ;;
+      esac
+   done
+
+   # printf -v var == sprintf to var
+   # printf -q     == !! shell quoted !!
+
+   # change fmt to prefix further args with blank
+   if [ $# -gt 1 ]; then
+      printf "$fmt" "$1"; 
+      shift
+      fmt=" $fmt"; 
+   fi
+   printf "$fmt" ${1:+"$@"}
+   printf "$nl" 
+}
+function _warn  { _echo ${1:+"$@"} 1>&2; }
+function warn   { _warn ${1:+"$@"};      }
+
+
+
+# functions for :-separated strings like $PATH
+# - check if component (fully matching glob) is in path
+# - strip duplicates, "" and "."
+# - strip duplicates (this version is native w/o using external programs!)
+
+function _is_in_path {
+   typeset tmp=":$1:"
+   [ "${tmp#*:$2:}" != "$tmp" ]
+}
+function _dot_in_path {
+   typeset tmp=":$1:"
+   [ "${tmp#*::}" != "$tmp" ] || [ "${tmp#*:.:}" != "$tmp" ]
+}
+function uniqpath { # VAR="$(uniqpath \$VAR)"
+   # arg1: :-separated string
+   # arg2: exact string to skip, e.g. '.', '', '/usr/local/bin'
+   typeset path tmp elem out skip
+   skip="cannotmatchever"
+   [ "$#" = "0" ] && return
+   path="$1"; shift
+   if [ "$#" = "1" ]; then 
+      skip="$1"; shift
+   fi
+
+   typeset oldifs="$IFS"; IFS=:; set -- $path; IFS="$oldifs"
+   while [ "$#" -gt "0" ]; do
+      tmp=":$out:"
+      elem="$1"
+      shift
+      [ "$skip" = "$elem" ]                                && continue
+      [ "$tmp" != "::" -a "${tmp#*:$elem:}" != "$tmp" ]    && continue
+      [ "$out" != ""   -a "${out##*:}" = "" ] && out="$out$elem" || out="$out:$elem"
+      [ "$tmp" =  "::" -a "$elem" != "" ] && out=$elem
+   done
+   _echo -- "$out"
+}
+function uniqpath_no_dot {
+   typeset tmp
+   # "$()" seems to properly recurse in contrast to the on-off
+   #       nature of ",',`
+   tmp="$(uniqpath ${1:+"$@"})"
+   tmp="$(uniqpath "$tmp" "")"
+   _echo -- "$(uniqpath "$tmp" ".")"
+}
+
+
+function _pipe {
+   # compatility layer: bash doesn't place the final
+   # process of a pipe in the current environment
+   # while ksh process substitution doesn't reclaim
+   # fds and does not allow the resulting file (/dev/fd/N)
+   # to be used in another redirection... . 
+   # Bash: typeset local vars are dynamic scope, i.e. visible within cdpipe.
+   # Ksh:  typeset local vars seem lexical, i.e. NOT VISIBLE in called functions.
+   if [ "${SHELL##*bash}" != "$SHELL" ]; then
+      eval "$2 < <($1)"
+   else
+      eval "$1 | $2"
+   fi
+}
+
+
+# another simple echo helper
+#
+# some sanity in quoting s/hell: the 17char quoting using e.g.
+# args "$(printf "%s" "'a'" "$(printf "%s\n%s" 1 'b "c"' 2)")"
+# NOTE that the final "%s" in printf eats all remaining WORDs
+#
+# simplify this as 7char quoting workaround: "$(p "'a'")" (w/o the newline)
+function p { printf "%s" ${1:+"$@"}; }
+
+
+# read a file or pipe into a shell array (see also readarray / mapfile)
+#
+# ---------
+#    ksh93: find . -print | f2a -a ARGS  ;   less "${ARGS[@]}"
+#           f2a -a ARGS    <(find . -print); less "${ARGS[@]}"
+#           cf. find . -print | while ...;do ... ;done # ksh only
+#           # (still no < <(...) support in ksh)
+#    bash:  f2a -a ARGS  < <(find . -print); less "${ARGS[@]}"  # def f2a
+#           f2a -a ARGS    <(find . -print); less "${ARGS[@]}"  # def f2a
+#    bash4: mapfile ARGS < <(find . -print); less "${ARGS[@]}"  # def MAPFILE
+#           # (still no ...|mapfile in bash...)
+#           # alias: readarray, permits -u FD-NUMBER, but no 
+#           # Advantage: loads line by line w/o IFS mess
+#           filecontent=( `< /etc/passwd`) # this breaks elements on IFS
+#           # so we need to do the standard IFS tango (no "\n", use ^V)
+#           { O="$IFS"; IFS=$'\n'; filecontent=( `cat /etc/passwd`); IFS="$O" ;} 
+#           # as typeset IFS in { ;} is still the shell scope IFS
+#
+#    misc: declare -a unix; unix=("${unix[@]}" "AIX" "HP-UX")
+#          simpler: unix+=( AIX HP-UX)
+#          unset unix[3] # does indeed update indices of subsequent elements 
+#          declare -a nonaix=( ${unix[@]/AIX*/} ) # declare -a optional
+#          # X=5; declare -a X; X now equals ( 5)
+# --------
+# 
+# using the possibly empty array as command arguments:
+#    printf "%s\n" ${f2a:+"${f2a[@]}"}
+#    (bash4 mapfile builtin seems to finally support this idea together 
+#     with its ZERO-BASED! arrays; better yet, ${parameter/ARRAY[@]/...} 
+#     might even be a basic map()! mapfile -t even offers to chomp)
+#
+# note that read without -r considers a trailing \ to join lines
+# for both ksh and bash
+#   f2a_STILL_WITHOUT_-r  <( echo "z a\\"; echo b; echo c )
+#   printf "  %s\n" "${f2a[@]}"
+#     z ab
+#     c
+#
+# starting with bash4, there is the mapfile builtin for this purpose
+
+function f2a { 
+   # also an option: printf "%q" and loop
+   typeset _a _l _i _f
+   typeset -i _i
+
+   # array name
+   if [ "$1" = "-a" -a "$2" != "" ]; then
+       _a="$2"; shift;shift;
+    else
+       _a="f2a"
+    fi
+
+    # file
+    _f="-"
+    if [ "$1" != "" ]; then
+       _f="$1"; shift
+    fi
+    if [ "$_f" = "-" ]; then
+       _f=/dev/stdin
+    fi
+
+    unset -v $_a # !the var pointed to!
+    if [ -n "$1" -o ! -e "$_f" ]; then
+       echo "Usage:   f2a [-a ARRAYNAME] [FILE] -- load lines into array (default: f2a)" 1>&2;
+       echo "Example: f2a <(cat /etc/hosts)" 1>&2;
+       return 1;
+    fi
+    eval ' while read -r _l;do 
+              '${_a}'[_i]="$_l";
+              _i=_i+1;
+           done < "$_f";
+           echo "# \$$_a[]: $_i lines loaded" 1>&2
+         '
+}
+
+
+# some rexx-inspired helpers for pipes
+# append                   ( echo 1; echo 2; echo 3 ) | pushtail 3
+# change numbered line     sed 3s/3/33/
+# change                   perl -lpe 'BEGIN{chomp($a=<>);print $a.$a}'
+# change                   { read x; [ "$x"="11" ] && echo "55555" || echo $x ; cat - ;}
+# delete numbered line     sed 2,3d 
+# prepend                  { echo 44; cat -;} 
+# prepend                  pushhead "4\\n5" 
+# drop initial # comments  dropheader
+pushtail () 
+{ 
+    perl -e 'BEGIN{eval qq!\$e="$ARGV[0]"!}; while(<STDIN>){print; $l=$_};END{print "\n" if $l!~/\n/; $l=$e; print $l; print "\n" if $l!~/\n$/;}' ${1:+"$@"}
+}
+pushhead () 
+{ 
+    perl -e 'BEGIN{eval qq!\$e="$ARGV[0]"!; $l=$e; print $l; print "\n" if $l!~/\n$/}; while(<STDIN>){print; $l=$_}' ${1:+"$@"}
+}
+dropheader ()
+{
+    perl -lne '$nc++ if $_ and not /^#/; print if $nc'
+}
+
+
+# vim:filetype=sh

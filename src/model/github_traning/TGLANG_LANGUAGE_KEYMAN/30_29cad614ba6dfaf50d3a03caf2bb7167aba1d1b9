@@ -1,0 +1,518 @@
+VERSION 5.0 C  This keyboard will work with Keyman 5.0
+NAME "WINSDEVU 1.002"
+BITMAP "deva.bmp"
+HOTKEY   "^+D"
+message "Devanagiri Phonetic Keyboard"
+
+CAPS ALWAYS OFF
+begin UNICODE > use(main)
+group (main) using keys
++ [K_EQUAL] > deadkey(1)
++ 'X' > deadkey(2)
++ 'f' > deadkey(3)
++ 'x' > deadkey(4)
++ '`' > deadkey(5)
+
+store (vowel)  'a' 'i' 'u' 'R' '|' ']' 'e' '}' 'o' \
+               'A' 'I' 'U' '^' '_' 'E' 'Y' 'O' 'V'
+
+store (vowelU) U+200D U+093F U+0941 U+0943 U+0962 U+0945 U+0947 U+0949 U+094B \
+               U+093E U+0940 U+0942 U+0944 U+0963 U+0946 U+0948 U+094A U+094C
+
+store (consonant)     'g' 'W' 'c' 'j' 'w' 't' 'd' 'N' 'q'         'b' 'm' 'y' 'l' 'v' 'z'  \
+                  'K' 'G'         'J'     'T'         'Q' '{' 'P' 'B'         'L'     'Z' 'h'
+store (consonantU)        U+0917 U+0919 U+091A  U+091C U+091E U+091F U+0921 U+0923 U+0924                     U+092C U+092E U+092F U+0932 U+0935 U+0936  \
+                   U+0916 U+0918                U+091D        U+0920                U+0925 U+0927 U+092B U+092D               U+0933              U+0937 U+0939
+
+store (othercons)  'k' '[' 'p' 's' 'D'
+store (otherconsU) U+0915 U+0926 U+092A U+0938 U+0922
+
+store (special) 'n'
+store (specialU) U+0928
+
+store (specialcase1) 'C'
+store (specialcase1U) U+091B
+
+store (specialcase2) 'r'
+store (specialcase2U) U+0930
+
+store (diacriticalmod)  'M' 'H' 'S'
+store (diacriticalmodU) U+0902 U+0903 U+0901
+
+store (number)     '0'    '1'    '2'    '3'    '4'    '5'    '6'    '7'    '8'    '9'
+store (Devanagiri) U+0966 U+0967 U+0968 U+0969 U+096A U+096B U+096C U+096D U+096E U+096F
+store (Arabic)     '0'    '1'    '2'    '3'    '4'    '5'    '6'    '7'    '8'    '9'
+
+store (different) 'F' 'M' 'H' 'S'
++ any(consonant) > index(consonantU,1)
++ any(othercons) > index(otherconsU,1)
++ any(different) > beep
++ any(special) >  index(specialU,1)
++ any(specialcase1) >  index(specialcase1U,1)
++ any(specialcase2) >  index(specialcase2U,1)
++ any(number) > index(Devanagiri,1)
+dk(5) + any(number) > index(Arabic,2)
+c
+c               VOWELS
++ 'a' > U+0905
++ 'A' > U+0906
++ 'i' > U+0907
++ 'I' > U+0908
++ 'u' > U+0909
++ 'U' > U+090A
++ 'R' > U+090B
++ '^' > U+0960
++ '|' > U+090C
++ '_' > U+0961
++ ']' > U+090D
++ 'E' > U+090E
++ 'e' > U+090F
++ 'Y' > U+0910
++ '}' > U+0911
++ 'O' > U+0912
++ 'o' > U+0913
++ 'V' > U+0914
+
+U+0905 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0905 + 'f' > context U+093C
+U+0906 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0906 + 'f' > context U+093C
+U+0907 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0908 + 'H' > context U+0903
+U+0909 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0909 + 'f' > context U+093C
+U+090A + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+090A + 'f' > context U+093C
+U+090B + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+090B + 'f' > context U+093C
+U+0960 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0960 + 'f' > context U+093C
+U+090C + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+090C + 'f' > context U+093C
+U+0961 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0961 + 'f' > context U+093C
+U+090D + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+090D + 'f' > context U+093C
+U+090E + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+090E + 'f' > context U+093C
+U+090F + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+090F + 'f' > context U+093C
+U+0910 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0910 + 'f' > context U+093C
+U+0911 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0911 + 'f' > context U+093C
+U+0912 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0912 + 'f' > context U+093C
+U+0913 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0913 + 'f' > context U+093C
+U+0914 + any(diacriticalmod) > context index(diacriticalmodU,2)
+U+0914 + 'f' > context U+093C
+
+any (consonantU) + any(vowel) > context index(vowelU,2)
+
+any (consonantU) + any(diacriticalmod) > context index(diacriticalmodU,2)
+any (consonantU) + 'f' > context U+093C
+any (consonantU) U+093C + 'f' > context
+
+any (consonantU) U+093C + any(vowel) > context index(vowelU,3)
+any (consonantU) U+093C any(vowelU) + any(diacriticalmod) > context index(diacriticalmodU,4)
+
+any (consonantU) U+093C + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+any (consonantU) U+093C + 'x' > context U+094D
+any (consonantU) U+093C U+094D + 'x' > context U+200D
+
+any (consonantU) U+093C U+094D U+0930 + 'x' > index(consonantU,1) U+093C U+094D U+200D U+0930 U+094D U+200C
+any (consonantU) U+093C U+094D U+200D U+0930 U+094D U+200C + 'x' > index(consonantU,1) U+093C U+094D U+0930 U+094D U+200C
+
+any (consonantU) + 'x'  > context U+094D U+200D
+any (consonantU) U+094D U+200D + 'x' > index(consonantU,1) U+094D U+200C
+
+any (consonantU) U+094D U+200D + 'w' > index(consonantU,1) U+094D U+091E
+
+any (consonantU) U+094D U+200D + 't' > index(consonantU,1) U+094D U+091F
+any (consonantU) U+094D U+200D + 'T' > index(consonantU,1) U+094D U+0920
+any (consonantU) U+094D U+200D + 'd' > index(consonantU,1) U+094D U+0921
+any (consonantU) U+094D U+200D + 'D' > index(consonantU,1) U+094D U+0922
+
+any (consonantU) U+094D U+200D + 'q' > index(consonantU,1) U+094D U+0924
+
+any (consonantU) U+094D U+200D + 'm' > index(consonantU,1) U+094D U+092E
+
+any (consonantU) U+094D U+200D + 'y' > index(consonantU,1) U+094D U+092F
+any (consonantU) U+094D U+200D + 'r' > index(consonantU,1) U+094D U+0930
+any (consonantU) U+094D U+200D + 'Z' > index(consonantU,1) U+094D U+0937
+
+any (consonantU) U+094D U+0930 + 'x' > context U+094D
+any (consonantU) U+094D U+0930 U+094D + 'x' > context U+200C
+
+any (consonantU) any(vowelU)  + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+any (consonantU) U+094D  + 'w' > context U+200D U+091E
+
+any (consonantU) U+094D + 't' > context U+200D U+091F
+any (consonantU) U+094D + 'T' > context U+200D U+0920
+any (consonantU) U+094D + 'd' > context U+200D U+0921
+any (consonantU) U+094D + 'D' > context U+200D U+0922
+
+any (consonantU) U+094D + 'q' > context U+200D U+0924
+
+any (consonantU) U+094D + 'm' > context U+200D U+092E
+
+any (consonantU) U+094D + 'y' > context U+200D U+092F
+any (consonantU) U+094D + 'r' > context U+200D U+0930
+any (consonantU) U+094D + 'Z' > context U+200D U+0937
+
+any (otherconsU) + any(vowel) > context index(vowelU,2)
+
+any (otherconsU) + any(diacriticalmod) > context index(diacriticalmodU,2)
+any (otherconsU) + 'f' > context U+093C
+any (otherconsU) U+093C + 'f' > context
+
+any (otherconsU) U+093C + any(vowel) > context index(vowelU,3)
+any (otherconsU) U+093C any(vowelU) + any(diacriticalmod) > context index(diacriticalmodU,4)
+
+any (otherconsU) U+093C + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+any (otherconsU) U+093C + 'x' > context U+094D
+any (otherconsU) U+093C U+094D + 'x' > context U+200D
+
+any (otherconsU) U+093C U+094D U+0930 + 'x' > index(otherconsU,1) U+093C U+094D U+200D U+0930 U+094D U+200C
+any (otherconsU) U+093C U+094D U+200D U+0930 U+094D U+200C + 'x' > index(otherconsU,1) U+093C U+094D U+0930 U+094D U+200C
+
+any (otherconsU) + 'x'  > context U+094D U+200D
+any (otherconsU) U+094D U+200D + 'x' > index(otherconsU,1) U+094D U+200C
+
+any (otherconsU) U+094D U+200D + '[' > index(otherconsU,1) U+094D u+0926
+any (otherconsU) U+094D U+200D + '{' > index(otherconsU,1) U+094D u+0927
+
+any (otherconsU) U+094D U+200D + 'm' > index(otherconsU,1) U+094D U+092E
+
+any (otherconsU) U+094D U+200D + 'y' > index(otherconsU,1) U+094D U+092F
+any (otherconsU) U+094D U+200D + 'r' > index(otherconsU,1) U+094D U+0930
+any (otherconsU) U+094D U+200D + 'Z' > index(otherconsU,1) U+094D U+0937
+any (otherconsU) U+094D U+200D + 'v' > index(otherconsU,1) U+094D U+0935
+
+any (otherconsU) U+094D U+0930 + 'x' > context U+094D
+any (otherconsU) U+094D U+0930 U+094D + 'x' > context U+200C
+
+any (otherconsU) any(vowelU)  + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+c Double Consonants
+any (otherconsU) U+094D + '[' > context U+200D U+0926
+any (otherconsU) U+094D + '{' > context U+200D U+0927
+
+any (otherconsU) U+094D + 'm' > context U+200D U+092E
+
+any (otherconsU) U+094D + 'y' > context U+200D U+092F
+any (otherconsU) U+094D + 'r' > context U+200D U+0930
+any (otherconsU) U+094D + 'Z' > context U+200D U+0937
+any (otherconsU) U+094D + 'v' > context U+200D U+0935
+
+c Combinations of 'n' and Vowel Signs
+any (specialU) + any(vowel) > context index(vowelU,2)
+
+c Combinations of 'n' and diacritical marks
+any (specialU) + any(diacriticalmod) > context index(diacriticalmodU,2)
+
+c Combinations of 'n' and Nukta
+any (specialU) + 'f' > context U+093C
+any (specialU) U+093C + 'f' > context
+
+c Combinations of 'n', Nukta and Vowel Signs
+any (specialU) U+093C + any(vowel) > context index(vowelU,3)
+
+c Combinations of 'n', Nukta, Vowel Signs and diacritical marks
+any (specialU) U+093C any(vowelU) + any(diacriticalmod) > context index(diacriticalmodU,4)
+
+c Combinations of 'n', Nukta and diacritical marks
+any (specialU) U+093C + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+c Combinations of 'n' and 'x'
+any (specialU) + 'x'  > context U+094D U+200D
+any (specialU) U+094D U+200D + 'x' > index(specialU,1) U+094D U+200C
+
+c Special combinations of 'n' with Nukta and 'x'
+any (specialU) U+093C + 'x' > context U+094D
+any (specialU) U+093C U+094D + 'x' > context U+200D
+
+c Special combinations of 'n' with Nukta, 'x' and 'r'
+any (specialU) U+093C U+094D U+0930 + 'x' > index(specialU,1) U+093C U+094D U+200D U+0930 U+094D U+200C
+any (specialU) U+093C U+094D U+200D U+0930 U+094D U+200C + 'x' > index(specialU,1) U+093C U+094D U+0930 U+094D U+200C
+
+c Special combinations of 'n' with 'n' and 'r'
+any (specialU) U+094D U+200D + 'n' > index(specialU,1) U+094D U+0928
+any (specialU) U+094D U+200D + 'r' > index(specialU,1) U+094D U+0930
+
+c Combination of 'n', 'x', 'r' and 'x'
+any (specialU) U+094D U+0930 + 'x' > context U+094D
+any (specialU) U+094D U+0930 U+094D + 'x' > context U+200C
+
+c Combination of 'n', Vowel signs and diacritical marks
+any (specialU) any(vowelU)  + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+any (specialU) U+094D + 'n' > context U+200D U+0928
+any (specialU) U+094D + 'r' > context U+200D U+0930
+
+c Combination of 'C' and Vowel signs
+any (specialcase1U) + any(vowel) > context index(vowelU,2)
+
+c Combination of 'C' and Diacritical marks
+any (specialcase1U) + any(diacriticalmod) > context index(diacriticalmodU,2)
+
+c Combination of 'C' and Nukta
+any (specialcase1U) + 'f' > context U+093C
+any (specialcase1U) U+093C + 'f' > context
+
+c Combination of 'C', Nukta and Vowel signs
+any (specialcase1U) U+093C + any(vowel) > context index(vowelU,3)
+
+c Combination of 'C', Nukta, Vowel signs and diacritical marks
+any (specialcase1U) U+093C any(vowelU) + any(diacriticalmod) > context index(diacriticalmodU,4)
+
+c Combination of 'C', Nukta and diacritical marks
+any (specialcase1U) U+093C + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+c Combination of 'C', Nukta and 'x'
+any (specialcase1U) U+093C + 'x' > context U+094D
+any (specialcase1U) U+093C U+094D + 'x' > context U+200D
+
+c Combination of 'C', Nukta, 'x','r' and 'x'
+any (specialcase1U) U+093C U+094D U+0930 + 'x' > index(specialcase1U,1) U+093C U+094D U+200C U+0930 U+094D U+200C
+any (specialcase1U) U+093C U+094D U+200C U+0930 U+094D U+200C + 'x' > index(specialcase1U,1) U+093C U+094D U+0930 U+094D U+200C
+
+c Half Consonant of 'C'
+any (specialcase1U) + 'x'  > context U+094D U+200C
+any (specialcase1U) U+094D U+200C + 'x' > index(specialcase1U,1) U+094D U+200C U+200D
+
+c Combination of 'C', 'x, 'r'
+any (specialcase1U) U+094D U+200C + 'r' > index(specialcase1U,1) U+094D U+0930
+
+c Extended fonts with 'C'
+any ( specialcase1U ) U+094D U+200D + 'k' > index(specialcase1U,1) U+094D U+200C U+0915
+any ( specialcase1U ) U+094D U+200D + 'K' > index(specialcase1U,1) U+094D U+200C U+0916
+any ( specialcase1U ) U+094D U+200D + 'g' > index(specialcase1U,1) U+094D U+200C U+0917
+any ( specialcase1U ) U+094D U+200D + 'G' > index(specialcase1U,1) U+094D U+200C U+0918
+any ( specialcase1U ) U+094D U+200D + 'W' > index(specialcase1U,1) U+094D U+200C U+0919
+
+any ( specialcase1U ) U+094D U+200D + 'c' > index(specialcase1U,1) U+094D U+200C U+091A
+any ( specialcase1U ) U+094D U+200D + 'C' > index(specialcase1U,1) U+094D U+200C U+091B
+any ( specialcase1U ) U+094D U+200D + 'j' > index(specialcase1U,1) U+094D U+200C U+091C
+any ( specialcase1U ) U+094D U+200D + 'J' > index(specialcase1U,1) U+094D U+200C U+091D
+any ( specialcase1U ) U+094D U+200D + 'w' > index(specialcase1U,1) U+094D U+200C U+091E
+
+any ( specialcase1U ) U+094D U+200D + 't' > index(specialcase1U,1) U+094D U+200C U+091F
+any ( specialcase1U ) U+094D U+200D + 'T' > index(specialcase1U,1) U+094D U+200C U+0920
+any ( specialcase1U ) U+094D U+200D + 'd' > index(specialcase1U,1) U+094D U+200C U+0921
+any ( specialcase1U ) U+094D U+200D + 'D' > index(specialcase1U,1) U+094D U+200C U+0922
+any ( specialcase1U ) U+094D U+200D + 'N' > index(specialcase1U,1) U+094D U+200C U+0923
+
+any ( specialcase1U ) U+094D U+200D + 'q' > index(specialcase1U,1) U+094D U+200C U+0924
+any ( specialcase1U ) U+094D U+200D + 'Q' > index(specialcase1U,1) U+094D U+200C U+0925
+any ( specialcase1U ) U+094D U+200D + '[' > index(specialcase1U,1) U+094D U+200C U+0926
+any ( specialcase1U ) U+094D U+200D + '{' > index(specialcase1U,1) U+094D U+200C U+0927
+any ( specialcase1U ) U+094D U+200D + 'n' > index(specialcase1U,1) U+094D U+200C U+0928
+
+any ( specialcase1U ) U+094D U+200D + 'p' > index(specialcase1U,1) U+094D U+200C U+092A
+any ( specialcase1U ) U+094D U+200D + 'P' > index(specialcase1U,1) U+094D U+200C U+092B
+any ( specialcase1U ) U+094D U+200D + 'b' > index(specialcase1U,1) U+094D U+200C U+092C
+any ( specialcase1U ) U+094D U+200D + 'B' > index(specialcase1U,1) U+094D U+200C U+092D
+any ( specialcase1U ) U+094D U+200D + 'm' > index(specialcase1U,1) U+094D U+200C U+092E
+
+any ( specialcase1U ) U+094D U+200D + 'y' > index(specialcase1U,1) U+094D U+092F
+any ( specialcase1U ) U+094D U+200D + 'r' > index(specialcase1U,1) U+094D U+200C U+0930
+any ( specialcase1U ) U+094D U+200D + 'l' > index(specialcase1U,1) U+094D U+200C U+0932
+any ( specialcase1U ) U+094D U+200D + 'L' > index(specialcase1U,1) U+094D U+200C U+0933
+any ( specialcase1U ) U+094D U+200D + 'v' > index(specialcase1U,1) U+094D U+200C U+0935
+any ( specialcase1U ) U+094D U+200D + 'z' > index(specialcase1U,1) U+094D U+200C U+0936
+any ( specialcase1U ) U+094D U+200D + 'Z' > index(specialcase1U,1) U+094D U+200C U+0937
+any ( specialcase1U ) U+094D U+200D + 's' > index(specialcase1U,1) U+094D U+200C U+0938
+any ( specialcase1U ) U+094D U+200D + 'h' > index(specialcase1U,1) U+094D U+200C U+0939
+
+c Combination of 'C', 'x', 'r' and 'x'
+any (specialcase1U) U+094D U+0930 + 'x' > context U+094D U+200C
+any (specialcase1U) U+094D U+0930 U+094D U+200C + 'x' > context U+200D
+
+c Combination of 'C' , vowel symbols and diacritical marks
+any (specialcase1U) any(vowelU)  + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+c 'r' with Vowel Symbols
+any (specialcase2U) + any(vowel) > context index(vowelU,2)
+
+c 'r' and Diacritical marks
+any (specialcase2U) + any(diacriticalmod) > context index(diacriticalmodU,2)
+
+c Combination of 'r' and Nukta
+any (specialcase2U) + 'f' > context U+093C
+any (specialcase2U)U+093C + 'f' > context
+
+any (specialcase1U) U+093C any(vowelU) + any(diacriticalmod) > context index(diacriticalmodU,4)
+
+c 'r' with Nukta and matra (Vowel symbols)
+any (specialcase2U) U+093C + any(vowel) > context index(vowelU,3)
+
+c 'r' with Nukta, Vowel signs and diacritical marks
+any (specialcase2U) U+093C any(vowelU) + any(diacriticalmod) > context index(diacriticalmodU,4)
+
+c 'r' with Nukta and diacritical marks
+any (specialcase2U) U+093C + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+c Half Consonant with the help of 'x'
+any (specialcase2U) + 'x'  > context U+094D
+any (specialcase2U) U+094D + 'x' > context U+200C
+
+c Combination of R, nukta and 'x'
+any (specialcase2U) U+093C + 'x' > context U+094D
+any (specialcase2U) U+093C U+094D + 'x' > context U+200D
+
+any (specialcase2U) U+093C U+094D U+0930 + 'x' > index(specialcase2U,1) U+093C U+094D U+200C U+0930 U+094D U+200C
+any (specialcase2U) U+093C U+094D U+200C U+0930 U+094D U+200C + 'x' > index(specialcase2U,1) U+093C U+094D U+0930 U+094D U+200C
+
+c Combination of R, Matras and diacritical marks
+any (specialcase2U) any(vowelU)  + any(diacriticalmod) > context index(diacriticalmodU,3)
+
+c Double consonants
++ [shift K_5] > U+091C U+094D U+091E    c 'J' 'x' 'W'
++ [shift K_7] > U+0915 U+094D U+0937    c 'k' 'x' 'Z'
++ [shift K_8] > U+0936 U+094D U+0930    c 'z' 'x' 'r'
++ [shift K_4] > U+0930 U+094D           c Flying R or 'r' 'x'
++ [shift K_3] > U+094D U+0930           c 'x' 'r'
+
+dk(1) + '\' > U+0949
+c Indic Diacritical Marks
+dk(1) + [SHIFT K_3] > U+0951    c Udatta
+dk(1) + [SHIFT K_4] > U+0952    c Anudatta
+dk(1) + [SHIFT K_5] > U+0953    c Grave Accent
+dk(1) + [SHIFT K_7] > U+0954    c Acute Accent
+dk(1) + [K_PERIOD] > U+0970     c Abbreviation Sign
+
+dk(1) + '>' > U+093D            c Avagraha
+
+c Independent matra signs can be obtained by pressing a combination of "=" ,single space ,and the vowel letter
+dk(1) + [K_SPACE] > dk(1)" "
+
+dk(1)" " + any(vowel) > index(vowelU,3)
+dk(1)" " + any(diacriticalmod) > index(diacriticalmodU,3)
+dk(1)" " + [K_f] > U+093C           c Nukta
+dk(1)" " + [K_x] > dk(1)"  "
+dk(1)"  " + [K_x] > U+094D          c Halant
+
+c Punctuation marks
+U+0022 + '"' > U+201C   c Closing quotes
+U+0027 + "'" > U+201D   c Opening quotes
+"-" + "-" > U+005F U+005F               c Drawing line
+U+005F U+005F + '-' > context U+005F    c Drawing line
++ '>' > U+0964          c Full Stop
+U+0964 + '>' > U+0965      c Paragraph Stop
+
+c Extended Fonts
+any ( consonantU ) + 'X'  > context U+094D
+any ( otherconsU ) + 'X'  > context U+094D
+any ( specialU ) + 'X'  > context U+094D
+any ( specialcase1U )  + 'X'  > context U+094D U+200D
+any ( specialcase2U )  + 'X'  > context U+094D U+200D
+
+c Extended fonts when 'x' is pressed thrice
+any ( consonantU ) U+094D U+200C + 'x' > index(consonantU,1) U+094D
+any ( otherconsU ) U+094D U+200C + 'x' > index(otherconsU,1) U+094D
+any ( specialU ) U+094D U+200C + 'x' > index(specialU,1) U+094D
+any ( specialcase1U ) U+094D U+200C U+200D + 'x' > index(specialcase1U,1) U+094D U+200D
+any ( specialcase2U ) U+094D U+200C + 'x' > index(specialcase2U,1) U+094D U+200D
+
+c Extended fonts when 'x' is pressed twice and 'f' is pressed once
+any ( consonantU ) U+094D U+200C + 'f' > index(consonantU,1) U+094D
+any ( otherconsU ) U+094D U+200C + 'f' > index(otherconsU,1) U+094D
+any ( specialU ) U+094D U+200C + 'f' > index(specialU,1) U+094D
+any ( specialcase1U ) U+094D U+200C U+200D + 'f' > index(specialcase1U,1) U+094D U+200D
+any ( specialcase2U ) U+094D U+200C + 'f' > index(specialcase2U,1) U+094D U+200D
+
+c Extended fonts when 'x' is pressed twice and then 'X' is pressed
+any ( consonantU ) U+094D U+200C + 'X' > index(consonantU,1) U+094D
+any ( otherconsU ) U+094D U+200C + 'X' > index(otherconsU,1) U+094D
+any ( specialU ) U+094D U+200C + 'X' > index(specialU,1) U+094D
+any ( specialcase1U ) U+094D U+200C U+200D + 'X' > index(specialcase1U,1) U+094D U+200D
+any ( specialcase2U ) U+094D U+200C + 'X' > index(specialcase2U,1) U+094D U+200D
+
+c Extended fonts with Nukta
+any ( consonantU ) U+093C + 'X' > context U+094D
+any ( otherconsU ) U+093C + 'X' > context U+094D
+any ( specialU ) U+093C + 'X' > context U+094D
+any ( specialcase1U ) U+093C + 'X' > context U+094D U+200C
+any ( specialcase2U ) U+093C + 'X' > context U+094D U+200D
+
+c Extended fonts when Nukta is pressed once, 'x' is pressed twice and then 'X' is pressed once
+any ( consonantU ) U+093C U+094D U+200C + 'X' > index(consonantU,1)U+093C U+094D
+any ( otherconsU ) U+093C U+094D U+200C + 'X' > index(otherconsU,1)U+093C U+094D
+any ( specialU ) U+093C U+094D U+200C + 'X' > index(specialU,1)U+093C U+094D
+any ( specialcase1U ) U+093C U+094D U+200C U+200D + 'X' > index(specialcase1U,1)U+093C U+094D U+200C
+any ( specialcase2U ) U+093C U+094D U+200C + 'X' > index(specialcase2U,1)U+093C U+094D U+200D
+
+c Extended fonts when Nukta is pressed and 'x' is pressed thrice
+any ( consonantU ) U+093C U+094D U+200C + 'x'> index(consonantU,1)U+093C U+094D
+any ( otherconsU ) U+093C U+094D U+200C + 'x'> index(otherconsU,1)U+093C U+094D
+any ( specialU ) U+093C U+094D U+200C + 'x'> index(specialU,1)U+093C U+094D
+any ( specialcase1U ) U+093C U+094D U+200C U+200D + 'x'> index(specialcase1U,1)U+093C U+094D U+200C
+any ( specialcase2U ) U+093C U+094D U+200C + 'x'> index(specialcase2U,1)U+093C U+094D U+200D
+
+c Extended fonts when Nukta is pressed , 'x' is pressed twice and 'f' is pressed once
+any ( consonantU ) U+093C U+094D U+200C + 'f'> index(consonantU,1)U+093C U+094D
+any ( otherconsU ) U+093C U+094D U+200C + 'f'> index(otherconsU,1)U+093C U+094D
+any ( specialU ) U+093C U+094D U+200C + 'f'> index(specialU,1)U+093C U+094D
+any ( specialcase1U ) U+093C U+094D U+200C U+200D + 'f'> index(specialcase1U,1)U+093C U+094D U+200C
+any ( specialcase2U ) U+093C U+094D U+200C + 'f'> index(specialcase2U,1)U+093C U+094D U+200D
+
+c Extended fonts when a consonant, 'x', 'r' and 'X' are pressed
+any (consonantU) U+094D U+0930 + 'X' > index(consonantU,1) U+094D U+0930 U+094D
+any (otherconsU) U+094D U+0930 + 'X' > index(otherconsU,1) U+094D U+0930 U+094D
+any (specialU) U+094D U+0930 + 'X' > index(specialU,1) U+094D U+0930 U+094D
+any (specialcase1U) U+094D U+0930 + 'X' > index(specialcase1U,1) U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+094D U+0930 + 'X' > index(specialcase2U,1) U+094D U+0930 U+094D
+
+c Extended fonts when a consonant, 'x', 'r' are pressed once and 'x' is pressed thrice
+any (consonantU) U+094D U+0930 U+094D U+200C + 'x' > index(consonantU,1) U+094D U+0930 U+094D
+any (otherconsU) U+094D U+0930 U+094D U+200C + 'x' > index(otherconsU,1) U+094D U+0930 U+094D
+any (specialU) U+094D U+0930 U+094D U+200C + 'x' > index(specialU,1) U+094D U+0930 U+094D
+any (specialcase1U) U+094D U+0930 U+094D U+200C U+200D + 'x' > index(specialcase1U,1) U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+094D U+0930 U+094D U+200C + 'x' > index(specialcase2U,1) U+094D U+0930 U+094D
+
+c Extended fonts when a consonant, 'x', 'r' are pressed once ,'x' is pressed twice and 'f' is pressed once
+any (consonantU) U+094D U+0930 U+094D U+200C + 'f' > index(consonantU,1) U+094D U+0930 U+094D
+any (otherconsU) U+094D U+0930 U+094D U+200C + 'f' > index(otherconsU,1) U+094D U+0930 U+094D
+any (specialU) U+094D U+0930 U+094D U+200C + 'f' > index(specialU,1) U+094D U+0930 U+094D
+any (specialcase1U) U+094D U+0930 U+094D U+200C U+200D + 'f' > index(specialcase1U,1) U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+094D U+0930 U+094D U+200C + 'f' > index(specialcase2U,1) U+094D U+0930 U+094D
+
+c Extended fonts when a consonant, 'x', 'r' are pressed once, 'x' is pressed twice and 'X' is pressed once
+any (consonantU) U+094D U+0930 U+094D U+200C + 'X' > index(consonantU,1) U+094D U+0930 U+094D
+any (otherconsU) U+094D U+0930 U+094D U+200C + 'X' > index(otherconsU,1) U+094D U+0930 U+094D
+any (specialU) U+094D U+0930 U+094D U+200C + 'X' > index(specialU,1) U+094D U+0930 U+094D
+any (specialcase1U) U+094D U+0930 U+094D U+200C U+200D + 'X' > index(specialcase1U,1) U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+094D U+0930 U+094D U+200C + 'X' > index(specialcase2U,1) U+094D U+0930 U+094D
+
+c Extended fonts when a consonant, Nukta, 'x', 'r' and 'X' are pressed
+any (consonantU) U+093C U+094D U+0930 + 'X' > context U+094D
+any (otherconsU) U+093C U+094D U+0930 + 'X' > context U+094D
+any (specialU) U+093C U+094D U+0930 + 'X' > context U+094D
+any (specialcase1U) U+093C U+094D U+0930 + 'X' > context U+094D U+200C
+any (specialcase2U) U+093C U+094D U+0930 + 'X' > context U+094D U+200C
+
+c Extended fonts when a consonant, Nukta, 'x', 'r' are pressed once and 'x' is pressed thrice
+any (consonantU) U+093C U+094D U+0930 U+094D U+200C  + 'x' > index(consonantU,1) U+093C U+094D U+0930 U+094D
+any (otherconsU) U+093C U+094D U+0930 U+094D U+200C  + 'x' > index(otherconsU,1) U+093C U+094D U+0930 U+094D
+any (specialU) U+093C U+094D U+0930 U+094D U+200C  + 'x' > index(specialU,1) U+093C U+094D U+0930 U+094D
+any (specialcase1U) U+093C U+094D U+0930 U+094D U+200C  + 'x' > index(specialcase1U,1) U+093C U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+093C U+094D U+0930 U+094D U+200C  + 'x' > index(specialcase2U,1) U+093C U+094D U+0930 U+094D U+200C
+
+c Extended fonts when a consonant, Nukta, 'x', 'r' are pressed once , 'x' is pressed twice and 'f' is pressed once
+any (consonantU) U+093C U+094D U+0930 U+094D U+200C  + 'f' > index(consonantU,1) U+093C U+094D U+0930 U+094D
+any (otherconsU) U+093C U+094D U+0930 U+094D U+200C  + 'f' > index(otherconsU,1) U+093C U+094D U+0930 U+094D
+any (specialU) U+093C U+094D U+0930 U+094D U+200C  + 'f' > index(specialU,1) U+093C U+094D U+0930 U+094D
+any (specialcase1U) U+093C U+094D U+0930 U+094D U+200C  + 'f' > index(specialcase1U,1) U+093C U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+093C U+094D U+0930 U+094D U+200C  + 'f' > index(specialcase2U,1) U+093C U+094D U+0930 U+094D U+200C
+
+c Extended fonts when a consonant, Nukta, 'x', 'r' are pressed once , 'x' is pressed twice and 'X' is pressed once
+any (consonantU) U+093C U+094D U+0930 U+094D U+200C  + 'X' > index(consonantU,1) U+093C U+094D U+0930 U+094D
+any (otherconsU) U+093C U+094D U+0930 U+094D U+200C  + 'X' > index(otherconsU,1) U+093C U+094D U+0930 U+094D
+any (specialU) U+093C U+094D U+0930 U+094D U+200C  + 'X' > index(specialU,1) U+093C U+094D U+0930 U+094D
+any (specialcase1U) U+093C U+094D U+0930 U+094D U+200C  + 'X' > index(specialcase1U,1) U+093C U+094D U+0930 U+094D U+200C
+any (specialcase2U) U+093C U+094D U+0930 U+094D U+200C  + 'X' > index(specialcase2U,1) U+093C U+094D U+0930 U+094D U+200C
