@@ -1,0 +1,1035 @@
+[
+    {
+        "lang": "TGLANG_LANGUAGE_1S_ENTERPRISE",
+        "query": "Если+in:file+language:\"1C+Enterprise\"",
+        "keywords": [
+            "Если",
+            "Процедура",
+            "Перем",
+            "Для",
+            "Из"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ABAP",
+        "query": "in:file+language:\"ABAP\"",
+        "keywords": [
+            "CLASS",
+            "METHOD",
+            "DATA",
+            "METHODS",
+            "ADD"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ACTIONSCRIPT",
+        "query": "import flash+in:file+language:\"ActionScript\"",
+        "keywords": [
+            "function",
+            "package",
+            "import",
+            "uint",
+            "var"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ADA",
+        "query": "procedure+in:file+language:\"Ada\"",
+        "keywords": [
+            "with",
+            "procedure",
+            "use",
+            "constant",
+            "begin"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_APACHE_GROOVY",
+        "query": "in:file+path:groovy+language:\"Groovy\"",
+        "keywords": [
+            "def",
+            "class",
+            "return",
+            "while",
+            "if"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_APEX",
+        "query": "Salesforce+in:file+language:\"Apex\"",
+        "dirty": false,
+        "keywords": [
+            "public",
+            "class",
+            "with",
+            "sharing",
+            "private"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_APPLESCRIPT",
+        "query": "path:applescript+language:\"AppleScript\"",
+        "keywords": [
+            "to",
+            "end",
+            "using",
+            "run",
+            "set"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ASP",
+        "query": "path:aspx+language:\"ASP.NET\"",
+        "keywords": [
+            "Page",
+            "asp",
+            "import",
+            "var",
+            "using"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ASSEMBLY",
+        "query": "path:asm+language:\"Assembly\"",
+        "keywords": [
+            "mov",
+            "push",
+            "call",
+            "DATA",
+            "jnz"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_AUTOHOTKEY",
+        "query": "language:\"AutoHotkey\"",
+        "keywords": [
+            "Run",
+            "global",
+            "try",
+            "RunWait",
+            "SetWorkingDir"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_AWK",
+        "query": "language:\"Awk\"",
+        "keywords": [
+            "BEGIN",
+            "function",
+            "END",
+            "return",
+            "print"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_BASIC",
+        "query": "10+20+30+40+50+language:\"BASIC\"",
+        "dirty": false,
+        "keywords": [
+            "WHILE",
+            "REM",
+            "Dim",
+            "Sub",
+            "End"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_BATCH",
+        "query": "language:\"Batchfile\"",
+        "keywords": [
+            "off",
+            "set",
+            "call",
+            "rem",
+            "@echo"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_BISON",
+        "query": "%token+language:\"Bison\"",
+        "dirty": false,
+        "keywords": [
+            "%define",
+            "extern",
+            "%language",
+            "%token",
+            "%type"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_C",
+        "query": "language:\"C\"",
+        "keywords": [
+            "#include",
+            "#define",
+            "void",
+            "static",
+            "struct"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CLOJURE",
+        "query": "language:\"Clojure\"",
+        "keywords": [
+            "def",
+            "defn",
+            "let",
+            "defn-",
+            "ns"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CMAKE",
+        "query": "extension:cmake+language:\"CMake\"",
+        "keywords": [
+            "endif()",
+            "else()",
+            "endmacro()",
+            "endfunction()",
+            "if"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_COBOL",
+        "query": "extension:cbl+language:\"COBOL\"",
+        "keywords": [
+            "DATA",
+            "CODE",
+            "PROCEDURE",
+            "PERFORM",
+            "DISPLAY"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_COFFESCRIPT",
+        "query": "extension:coffee+language:\"CoffeeScript\"",
+        "keywords": [
+            "eval",
+            "try",
+            "if",
+            "class",
+            "return"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_COMMON_LISP",
+        "query": "extension:lisp+language:\"Common+Lisp\"",
+        "keywords": [
+            "defun",
+            "defmethod",
+            "let",
+            "setf",
+            "null"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CPLUSPLUS",
+        "query": "language:\"C%2B%2B\"",
+        "keywords": [
+            "using",
+            "extern",
+            "namespace",
+            "class",
+            "#define"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CRYSTAL",
+        "query": "language:\"Crystal\"",
+        "keywords": [
+            "def",
+            "begin",
+            "module",
+            "end",
+            "self"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CSHARP",
+        "query": "language:\"C%23\"",
+        "keywords": [
+            "using",
+            "namespace",
+            "public",
+            "struct",
+            "if"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CSS",
+        "query": "language:\"CSS\"",
+        "keywords": [
+            "@layer",
+            "@media",
+            "@import",
+            "display",
+            "color"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_CSV",
+        "query": "language:\"CSV\"",
+        "keywords": []
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_D",
+        "query": "language:\"D\"",
+        "keywords": [
+            "module",
+            "alias",
+            "if",
+            "else",
+            "while"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_DART",
+        "query": "language:\"Dart\"",
+        "keywords": [
+            "import",
+            "class",
+            "const",
+            "if",
+            "return"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_DELPHI",
+        "query": "language:\"DELPHI\"",
+        "keywords": [
+            "extern",
+            "begin",
+            "end",
+            "uses",
+            "type"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_DOCKER",
+        "query": "language:\"Dockerfile\"",
+        "keywords": [
+            "ENV",
+            "RUN",
+            "SHELL",
+            "USER",
+            "FROM"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ELIXIR",
+        "query": "language:\"Elixir\"",
+        "keywords": [
+            "defmodule",
+            "def",
+            "defp",
+            "for",
+            "do"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ELM",
+        "query": "language:\"Elm\"",
+        "keywords": [
+            "module",
+            "exposing",
+            "import",
+            "@docs",
+            "type"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ERLANG",
+        "query": "language:\"Erlang\"",
+        "keywords": [
+            "true",
+            "false",
+            "erlang",
+            "-endif.",
+            "String"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_FIFT",
+        "query": "TonUtil+extension:.fif",
+        "keywords": [
+            "parse-int",
+            "dup",
+            "wallet_addr",
+            "variable",
+            "body_boc"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_FORTH",
+        "query": "extension:forth+language:\"Forth\"",
+        "keywords": [
+            "constant",
+            "create",
+            "variable",
+            "VARIABLE",
+            "THEN"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_FORTRAN",
+        "query": "extension:f+language:\"Fortran\"",
+        "keywords": [
+            "if",
+            "read",
+            "write",
+            "open",
+            "endif"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_FSHARP",
+        "query": "extension:fs+language:\"F%23\"",
+        "keywords": [
+            "let",
+            "module",
+            "open",
+            "namespace",
+            "with"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_FUNC",
+        "query": "%3B%3B+extension:func",
+        "keywords": [
+            "impure",
+            "var",
+            "slice",
+            "cell",
+            "return"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_GAMS",
+        "query": "extension:gms+language:\"GAMS\"",
+        "keywords": [
+            "sets",
+            "set",
+            "display",
+            "$setglobal",
+            "$endif"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_GO",
+        "query": "language:\"Go\"",
+        "keywords": [
+            "package",
+            "type",
+            "struct",
+            "if",
+            "nil"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_GRADLE",
+        "query": "language:\"Gradle\"",
+        "keywords": [
+            "if",
+            "def",
+            "this",
+            "apply",
+            "task"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_GRAPHQL",
+        "query": "language:\"GraphQL\"",
+        "keywords": [
+            "type",
+            "scalar",
+            "input",
+            "query",
+            "mutation"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_HACK",
+        "query": "language:\"Hack\"",
+        "keywords": [
+            "namespace",
+            "class",
+            "function",
+            "type",
+            "mixed"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_HASKELL",
+        "query": "language:\"Haskell\"",
+        "keywords": [
+            "data",
+            "import",
+            "instance",
+            "module",
+            "where"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_HTML",
+        "query": "language:\"HTML\"",
+        "keywords": [
+            "<p>",
+            "<div",
+            "<head>",
+            "<script>",
+            "function"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_ICON",
+        "query": "procedure+extension:icn",
+        "keywords": [
+            "procedure",
+            "$define",
+            "global",
+            "return",
+            "link"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_IDL",
+        "query": "set_plot+language:\"IDL\"",
+        "keywords": [
+            "endcase",
+            "endif",
+            "begin",
+            "endwhile",
+            "set_plot"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_INI",
+        "query": "extension:ini+language:\"INI\"",
+        "keywords": []
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_JAVA",
+        "query": "language:\"Java\"",
+        "keywords": [
+            "import",
+            "class",
+            "void",
+            "String",
+            "public"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_JAVASCRIPT",
+        "query": "language:\"JavaScript\"",
+        "keywords": [
+            "module.exports",
+            "function",
+            "const",
+            "let",
+            "var"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_JSON",
+        "query": "language:\"JSON\"",
+        "keywords": []
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_JULIA",
+        "query": "language:\"Julia\"",
+        "keywords": [
+            "mutable",
+            "struct",
+            "end",
+            "begin",
+            "const"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_KEYMAN",
+        "query": "store+extension:kmn",
+        "keywords": [
+            "begin",
+            "using",
+            "keys",
+            "NAME",
+            "use(main)"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_KOTLIN",
+        "query": "extension:kt+language:\"Kotlin\"",
+        "keywords": [
+            "val",
+            "var",
+            "fun",
+            "object",
+            "class"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_LATEX",
+        "query": "extension:tex+language:\"TeX\"",
+        "keywords": [
+            "\\begin{document}",
+            "\\item"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_LISP",
+        "query": "defun+let+extension:l+language:\"LISP\"",
+        "dirty": false,
+        "keywords": [
+            "(def",
+            "(send",
+            "(defun",
+            "(cond",
+            "(setq"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_LOGO",
+        "query": "forward+extension:logo",
+        "dirty": false,
+        "keywords": [
+            "forward",
+            "right",
+            "repeat",
+            "end",
+            "to"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_LUA",
+        "query": "extension:lua+language:\"Lua\"",
+        "keywords": [
+            "local",
+            "end",
+            "return",
+            "function",
+            "nil"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_MAKEFILE",
+        "query": "extension:Makefile+language:\"Makefile\"",
+        "keywords": [
+            "ifeq",
+            "endif",
+            "all:",
+            "export",
+            "include"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_MARKDOWN",
+        "query": "extension:md+language:\"Markdown\"",
+        "keywords": [
+            "###",
+            "```",
+            "##"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_MATLAB",
+        "query": "extension:m+language:\"MATLAB\"",
+        "keywords": [
+            "clear",
+            "parfor",
+            "elseif",
+            "close"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_NGINX",
+        "query": "extension:conf+language:\"Nginx\"",
+        "keywords": [
+            "worker_processes",
+            "http",
+            "access_log",
+            "server",
+            "listen"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_NIM",
+        "query": "proc+extension:nim+language:\"Nim\"",
+        "dirty": false,
+        "keywords": [
+            "when",
+            "var",
+            "proc",
+            "type",
+            "const"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_OBJECTIVE_C",
+        "query": "extension:m+language:\"Objective-C\"",
+        "keywords": [
+            "#import",
+            "@implementation",
+            "(void)",
+            "void",
+            "static"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_OCAML",
+        "query": "extension:ml+language:\"OCaml\"",
+        "keywords": [
+            "let",
+            "type",
+            "open",
+            "module"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_OPENEDGE_ABL",
+        "query": "CURRENT-WINDOW+extension:p+language:\"OpenEdge+ABL\"",
+        "dirty": false,
+        "keywords": [
+            "DEFINE",
+            "CREATE",
+            "SELECT",
+            "ASSIGN",
+            "CURRENT-WINDOW"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PASCAL",
+        "query": "extension:pas+language:\"Pascal\"",
+        "keywords": [
+            "procedure",
+            "var",
+            "type",
+            "resourcestring",
+            "begin"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PERL",
+        "query": "extension:pl+language:\"Perl\"",
+        "keywords": [
+            "use",
+            "my",
+            "foreach",
+            "sub",
+            "our"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PHP",
+        "query": "extension:php+language:\"PHP\"",
+        "keywords": [
+            "<?php",
+            "use",
+            "function",
+            "class",
+            "foreach"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PL_SQL",
+        "query": "DECLARE+extension:plsql+language:\"PLSQL\"",
+        "dirty": false,
+        "keywords": [
+            "DECLARE",
+            "BEGIN",
+            "EXCEPTION",
+            "END;",
+            "EXECUTE"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_POWERSHELL",
+        "query": "extension:ps1+language:\"PowerShell\"",
+        "keywords": [
+            "Get-Command",
+            "Import-Module",
+            "Set-Variable",
+            "New-Item",
+            "Get-Content"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PROLOG",
+        "query": "extension:pl+language:\"Prolog\"",
+        "keywords": []
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PROTOBUF",
+        "query": "extension:proto+language:\"Protocol+Buffer\"",
+        "keywords": [
+            "message",
+            "syntax",
+            "enum",
+            "optional",
+            "string"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_PYTHON",
+        "query": "extension:py+language:\"Python\"",
+        "keywords": [
+            "def",
+            "elif",
+            "from",
+            "import"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_QML",
+        "query": "extension:qml+language:\"QML\"",
+        "keywords": [
+            "import",
+            "QtQuick",
+            "property",
+            "var"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_R",
+        "query": "extension:R+language:\"R\"",
+        "keywords": [
+            "for",
+            "FALSE",
+            "false",
+            "function()"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_RAKU",
+        "query": "grammar+language:\"Raku\"",
+        "keywords": [
+            "use",
+            "my",
+            "our",
+            "method",
+            "grammar"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_REGEX",
+        "query": "extension:regex+language:\"Regular+Expression\"",
+        "keywords": []
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_RUBY",
+        "query": "extension:rb+language:\"Ruby\"",
+        "keywords": [
+            "def",
+            "if",
+            "end",
+            "class"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_RUST",
+        "query": "extension:rs+language:\"Rust\"",
+        "keywords": [
+            "fn",
+            "let",
+            "mut",
+            "for",
+            "use"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SAS",
+        "query": "PROC+extension:sas+language:\"SAS\"",
+        "dirty": false,
+        "keywords": [
+            "PROC"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SCALA",
+        "query": "extension:scala+language:\"Scala\"",
+        "keywords": [
+            "def",
+            "object",
+            "import",
+            "lazy",
+            "val"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SCHEME",
+        "query": "syntax-rules+extension:scm+language:\"Scheme\"",
+        "dirty": false,
+        "keywords": [
+            "define-syntax",
+            "syntax-rules",
+            "lambda"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SHELL",
+        "query": "extension:sh+language:\"Shell\"",
+        "keywords": [
+            "-n",
+            "-t",
+            "-eq",
+            "set",
+            "unset"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SMALLTALK",
+        "query": "ifTrue+extension:st+language:\"Smalltalk\"",
+        "dirty": false,
+        "keywords": [
+            "ifTrue",
+            "ifFalse",
+            "with:",
+            "Object",
+            "publish"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SOLIDITY",
+        "query": "solidity+extension:sol",
+        "keywords": [
+            "contract",
+            "pragma",
+            "event",
+            "function",
+            "solidity"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SQL",
+        "query": "extension:sql+language:\"SQL\"",
+        "keywords": [
+            "UPDATE",
+            "TABLE",
+            "SELECT",
+            "WHERE",
+            "CREATE"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_SWIFT",
+        "query": "extension:swift+language:\"Swift\"",
+        "keywords": [
+            "var",
+            "func",
+            "guard",
+            "let",
+            "self"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_TCL",
+        "query": "extension:tcl+language:\"Tcl\"",
+        "keywords": [
+            "proc",
+            "section",
+            "set",
+            "foreach"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_TEXTILE",
+        "query": "extension:textile+language:\"Textile\"",
+        "keywords": [
+            "layout:",
+            "title:"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_TL",
+        "query": "extension:tlv+language:\"TL-Verilog\"",
+        "keywords": [
+            "endmodule",
+            "m4_TLV_version",
+            "/trans"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_TYPESCRIPT",
+        "query": "extension:ts+language:\"TypeScript\"",
+        "keywords": [
+            "type",
+            "export",
+            "interface",
+            "any",
+            "import"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_UNREALSCRIPT",
+        "query": "defaultproperties+extension:uc+language:\"UnrealScript\"",
+        "dirty": false,
+        "keywords": [
+            "auto",
+            "state",
+            "function",
+            "defaultproperties"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_VALA",
+        "query": "extension:vala+language:\"Vala\"",
+        "keywords": [
+            "namespace",
+            "class",
+            "using",
+            "var",
+            "yield"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_VBSCRIPT",
+        "query": "extension:vbs+language:\"VBScript\"",
+        "keywords": [
+            "Dim",
+            "Const",
+            "MsgBox",
+            "empty"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_VERILOG",
+        "query": "extension:v+language:\"Verilog\"",
+        "keywords": [
+            "module",
+            "input",
+            "wire",
+            "always",
+            "begin"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_VISUAL_BASIC",
+        "query": "extension:bas+language:\"Visual+Basic+6.0\"",
+        "keywords": [
+            "Dim",
+            "Public",
+            "Sub",
+            "Then",
+            "Select"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_WOLFRAM",
+        "query": "extension:nb+language:\"Mathematica\"",
+        "keywords": [
+            "Notebook[{",
+            "Cell[BoxData["
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_XML",
+        "query": "extension:xml+language:\"XML\"",
+        "keywords": [
+            "<?xml"
+        ]
+    },
+    {
+        "lang": "TGLANG_LANGUAGE_YAML",
+        "query": "extension:yaml+language:\"YAML\"",
+        "keywords": []
+    }
+]
