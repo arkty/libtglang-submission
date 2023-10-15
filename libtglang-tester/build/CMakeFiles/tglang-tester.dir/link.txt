@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG   CMakeFiles/tglang-tester.dir/tglang-tester.c.o  -o tglang-tester  -L/home/arkty/libtglang-submission/libtglang-tester -Wl,-rpath,/home/arkty/libtglang-submission/libtglang-tester -ltglang -lm -lrt 

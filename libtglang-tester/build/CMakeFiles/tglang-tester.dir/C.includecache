@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arkty/libtglang-submission/libtglang-tester/tglang-tester.c
+tglang.h
+/home/arkty/libtglang-submission/libtglang-tester/tglang.h
+stdio.h
+-
+stdlib.h
+-
+
+/home/arkty/libtglang-submission/libtglang-tester/tglang.h
+stddef.h
+-
+
